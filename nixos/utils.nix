@@ -41,7 +41,7 @@ in {
 
   services = {
     xserver = {
-      enable = true;
+      enable = false;
       xkb.layout = keyboardLayout;
       xkb.variant = "";
     };
@@ -77,11 +77,6 @@ in {
   };
 
   services.libinput.enable = true;
-
-  services.hardware.openrgb = {
-    enable = true;
-    package = pkgs.openrgb-with-all-plugins;
-  };
 
   programs.dconf.enable = true;
   services = {
@@ -135,7 +130,6 @@ in {
     nurl
     go
     comma
-    openrgb
     amfora # Fancy Terminal Browser For Gemini Protocol
     appimage-run # Needed For AppImage Support
     eza
@@ -150,7 +144,6 @@ in {
     xdgOpenUsePortal = true;
     config = {
       common.default = ["gtk"];
-      hyprland.default = ["gtk" "hyprland"];
     };
 
     extraPortals = [pkgs.xdg-desktop-portal-gtk];
@@ -158,7 +151,7 @@ in {
 
   security = {
     # allow wayland lockers to unlock the screen
-    pam.services.hyprlock.text = "auth include login";
+    #pam.services.hyprlock.text = "auth include login";
 
     # userland niceness
     rtkit.enable = true;

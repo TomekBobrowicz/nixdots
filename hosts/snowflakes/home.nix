@@ -11,28 +11,23 @@
 
     # Programs
     ../../home/programs/ghostty
-    #../../home/programs/editors/nvf
     ../../home/programs/editors/nixvim.nix
     ../../home/programs/shell
     ../../home/programs/fetch
     ../../home/programs/git
     ../../home/programs/lazygit
     ../../home/programs/media
-    #../../home/programs/spicetify
     ../../home/programs/editors/antigravity.nix
 
     # System (Desktop environment like stuff)
     ../../home/system/mime
     ../../home/system/udiskie
     ../../home/system/niri
-    #../../home/system/gtk
 
     # Scripts
     ../../home/scripts # All scripts
 
     inputs.catppuccin.homeModules.catppuccin
-    #inputs.dms.homeModules.dank-material-shell
-    #inputs.dms.homeModules.niri
   ];
 
   home = {
@@ -92,7 +87,7 @@
     file.".face.icon" = {source = ./profile_picture.png;};
 
     # Don't touch this
-    stateVersion = "24.05";
+    stateVersion = "26.05";
   };
 
   stylix.image = ../../walls/w11.jpg;
@@ -127,47 +122,4 @@
   };
 
   programs.home-manager.enable = true;
-  
-
-  /*programs.dank-material-shell = {
-    enable = true;
-    systemd.enable = true;
-    niri = {
-      enableKeybinds = true;
-      enableSpawn = false;
-      includes = {
-        enable = true;
-        override = true;
-        originalFileName = "hm";
-        filesToInclude = [
-          "alttab"
-          "binds"
-          "colors"
-          "layout"
-          "outputs"
-        ];
-      };
-    };
-    settings = {
-      theme = "dark";
-      dynamicTheming = true;
-
-      # Core features
-      enableSystemMonitoring = true; # System monitoring widgets (dgop)
-      enableClipboard = true; # Clipboard history manager
-      enableVPN = true; # VPN management widget
-      enableBrightnessControl = true; # Backlight/brightness controls
-      enableColorPicker = true; # Color picker tool
-      enableDynamicTheming = true; # Wallpaper-based theming (matugen)
-      enableAudioWavelength = true; # Audio visualizer (cava)
-      enableCalendarEvents = true; # Calendar integration (khal)
-      enableSystemSound = true; # System sound effects
-      #dockTransparency = lib.mkForce "0.7";
-      useAutoLocation = true;
-      powerActionConfirm = false;
-      launcherLogoMode = "os";
-
-      
-    };
-  };*/
 }

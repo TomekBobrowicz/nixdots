@@ -3,7 +3,8 @@ _: {
   programs.git.settings = {
     commit.gpgsign = true;
     gpg.ssh.allowedSignersFile = "~/.ssh/allowed_signers";
-    gpg.format = "ssh";
+    gpg.format = "null";
     user.signingkey = "~/.ssh/key.pub";
   };
+  programs.git.signing.format = "openpgp";
 }

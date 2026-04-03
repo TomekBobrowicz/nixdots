@@ -42,32 +42,24 @@
   stylix.targets.chromium.enable = false;
   home-manager.users."${config.var.username}" = import ./home.nix;
 
-  users.users."${config.var.username}".extraGroups = ["openrazer"];
+  programs.dms-shell = {
+    enable = true;
+    quickshell.package = pkgs.quickshell;
 
-#  hardware.openrazer.enable = true;
-#  environment.systemPackages = with pkgs; [
-#    openrazer-daemon
-#    polychromatic
-#  ];
+    systemd = {
+      enable = true; # Systemd service for auto-start
+      restartIfChanged = true; # Auto-restart dms.service when dms-shell changes
+    };
 
-programs.dms-shell = {
-  enable = true;
-  quickshell.package = pkgs.quickshell;
-  
-  systemd = {
-    enable = true;             # Systemd service for auto-start
-    restartIfChanged = true;   # Auto-restart dms.service when dms-shell changes
+    # Core features
+    enableSystemMonitoring = true; # System monitoring widgets (dgop)
+    enableVPN = true; # VPN management widget
+    enableDynamicTheming = true; # Wallpaper-based theming (matugen)
+    enableAudioWavelength = true; # Audio visualizer (cava)
+    enableCalendarEvents = true; # Calendar integration (khal)
+    enableClipboardPaste = true; # Pasting from the clipboard history (wtype)
   };
-  
-  # Core features
-  enableSystemMonitoring = true;     # System monitoring widgets (dgop)
-  enableVPN = true;                  # VPN management widget
-  enableDynamicTheming = true;       # Wallpaper-based theming (matugen)
-  enableAudioWavelength = true;      # Audio visualizer (cava)
-  enableCalendarEvents = true;       # Calendar integration (khal)
-  enableClipboardPaste = true;       # Pasting from the clipboard history (wtype)
-};
 
   # Don't touch this
-  system.stateVersion = "24.05";
+  system.stateVersion = "26.05";
 }

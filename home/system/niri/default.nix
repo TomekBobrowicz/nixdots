@@ -10,14 +10,13 @@
     ./settings.nix
     ./binds.nix
     ./rules.nix
-    #./quickshell.nix
   ];
 
   home.packages = with pkgs; [
     # screenshot
     grim
     slurp
-    swww
+    awww
 
     # utils
     wl-clipboard
@@ -28,8 +27,8 @@
     inter
 
     xwayland-satellite
-    mate.mate-polkit
-    hyprpicker
+    pkgs.mate-polkit
+    #hyprpicker
   ];
 
   # make stuff work on wayland
